@@ -13,6 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+ul {
+  list-style-type: none;
+}
 
 a {
   font-weight: 500;
@@ -95,7 +98,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-/*  */
 .img_portada {
   width: 50%;
   height: auto;
@@ -112,6 +114,29 @@ button:focus-visible {
 .flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   gap: 1rem;
+}
+
+/*  */
+section {
+  position: relative;
+  padding: 50px 0;
+  width: 50vw;
+}
+.baraja {
+  /* width: 80%; */
+  height: auto;
+}
+.baraja * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.z1 {
+  z-index: 1;
+}
+.mostrar_carta {
+  transform: translateX(30vw);
 }
