@@ -204,21 +204,6 @@ const texto = () => {
   let texto = document.querySelector('.texto_avisos');
   return texto;
 };
-// Gestionar Game Over
-const gameOver = () => {
-  let mensaje = texto();
-  if (
-    mensaje !== null &&
-    mensaje !== undefined &&
-    mensaje instanceof HTMLHeadingElement &&
-    puntuacion > 7.5
-  ) {
-    mensaje.textContent = 'GAME OVER';
-    reiniciarJuego();
-  } else {
-    console.log('No es game over');
-  }
-};
 
 // Gestionar me planto
 const mePlanto = () => {
@@ -287,6 +272,22 @@ const eventos = () => {
     pedirCarta !== undefined &&
     pedirCarta instanceof HTMLButtonElement
   ) {
+    // Gestionar Game Over
+    const gameOver = () => {
+      let mensaje = texto();
+      if (
+        mensaje !== null &&
+        mensaje !== undefined &&
+        mensaje instanceof HTMLHeadingElement &&
+        puntuacion > 7.5
+      ) {
+        mensaje.textContent = 'GAME OVER';
+        desactivarBtnPedirCarta();
+        reiniciarJuego();
+      } else {
+        console.log('No es game over');
+      }
+    };
     // Fn deshabilitar btn pedirCarta
     const desactivarBtnPedirCarta = () => {
       pedirCarta.disabled = true;
