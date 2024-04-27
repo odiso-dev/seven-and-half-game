@@ -109,7 +109,6 @@ button:focus-visible {
   width: 30%;
   height: auto;
   display: block;
-  cursor: pointer;
 }
 .flex {
   display: flex;
@@ -131,10 +130,13 @@ section {
   left: 0;
 }
 
-.z1 {
-  z-index: 1;
+.z10 {
+  z-index: 10;
 }
 .mostrar_carta {
   transform: translateX(30vw);
   transition: transform 0.5s ease-in;
+}
+.btn_reload {
+  display: none;
 }

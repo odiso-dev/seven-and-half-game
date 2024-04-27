@@ -1,16 +1,16 @@
 import './style.css';
 
 let puntuacion = 0;
-/* const AS = 1;
-const DOS = 2;
-const TRES = 3;
-const CUATRO = 4;
-const CINCO = 5;
-const SEIS = 6;
-const SIETE = 7;
-const SOTA = 8;
-const CABALLO = 9;
-const REY = 10; */
+/* const CARTA_AS = 1;
+const CARTA_DOS = 2;
+const CARTA_TRES = 3;
+const CARTA_CUATRO = 4;
+const CARTA_CINCO = 5;
+const CARTA_SEIS = 6;
+const CARTA_SIETE = 7;
+const CARTA_SOTA = 10;
+const CABALLO = 11;
+const CARTA_REY = 12; */
 
 const muestraPuntuacion = () => {
   let mostrarPuntuacion = document.querySelector('.mostrar_puntuacion');
@@ -36,136 +36,160 @@ const dameCarta = () => {
 
 const muestraCarta = (valorCartaAleatoria: number): void => {
   // Div de cada carta
-  const AS = document.querySelector('.carta_copas1');
-  const DOS = document.querySelector('.carta_copas2');
-  const TRES = document.querySelector('.carta_copas3');
-  const CUATRO = document.querySelector('.carta_copas4');
-  const CINCO = document.querySelector('.carta_copas5');
-  const SEIS = document.querySelector('.carta_copas6');
-  const SIETE = document.querySelector('.carta_copas7');
-  const SOTA = document.querySelector('.carta_copas_sota');
-  const CABALLO = document.querySelector('.carta_copas_caballo');
-  const REY = document.querySelector('.carta_copas_rey');
+  const CARTA_AS = document.querySelector('.carta_copas1');
+  const CARTA_DOS = document.querySelector('.carta_copas2');
+  const CARTA_TRES = document.querySelector('.carta_copas3');
+  const CARTA_CUATRO = document.querySelector('.carta_copas4');
+  const CARTA_CINCO = document.querySelector('.carta_copas5');
+  const CARTA_SEIS = document.querySelector('.carta_copas6');
+  const CARTA_SIETE = document.querySelector('.carta_copas7');
+  const CARTA_SOTA = document.querySelector('.carta_copas_sota');
+  const CARTA_CABALLO = document.querySelector('.carta_copas_caballo');
+  const CARTA_REY = document.querySelector('.carta_copas_rey');
 
   // Mapea el valor de la carta y la muestra
   switch (valorCartaAleatoria) {
     case 1:
-      if (AS !== null && AS !== undefined && AS instanceof HTMLElement) {
-        console.log('AS');
-        AS.classList.add('mostrar_carta');
+      if (
+        CARTA_AS !== null &&
+        CARTA_AS !== undefined &&
+        CARTA_AS instanceof HTMLElement
+      ) {
+        console.log('CARTA_AS');
+        CARTA_AS.classList.add('mostrar_carta');
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el AS');
+        console.error('No se puede mostrar el CARTA_AS');
       }
       break;
     case 2:
-      if (DOS !== null && DOS !== undefined && DOS instanceof HTMLElement) {
-        console.log('DOS');
-        DOS.classList.add('mostrar_carta');
+      if (
+        CARTA_DOS !== null &&
+        CARTA_DOS !== undefined &&
+        CARTA_DOS instanceof HTMLElement
+      ) {
+        console.log('CARTA_DOS');
+        CARTA_DOS.classList.add('mostrar_carta');
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el DOS');
+        console.error('No se puede mostrar el CARTA_DOS');
       }
       break;
     case 3:
-      if (TRES !== null && TRES !== undefined && TRES instanceof HTMLElement) {
-        console.log('TRES');
-        TRES.classList.add('mostrar_carta');
+      if (
+        CARTA_TRES !== null &&
+        CARTA_TRES !== undefined &&
+        CARTA_TRES instanceof HTMLElement
+      ) {
+        console.log('CARTA_TRES');
+        CARTA_TRES.classList.add('mostrar_carta');
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el TRES');
+        console.error('No se puede mostrar el CARTA_TRES');
       }
       break;
     case 4:
       if (
-        CUATRO !== null &&
-        CUATRO !== undefined &&
-        CUATRO instanceof HTMLElement
+        CARTA_CUATRO !== null &&
+        CARTA_CUATRO !== undefined &&
+        CARTA_CUATRO instanceof HTMLElement
       ) {
-        console.log('CUATRO');
-        CUATRO.classList.add('mostrar_carta');
+        console.log('CARTA_CUATRO');
+        CARTA_CUATRO.classList.add('mostrar_carta');
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el CUATRO');
+        console.error('No se puede mostrar el CARTA_CUATRO');
       }
       break;
     case 5:
       if (
-        CINCO !== null &&
-        CINCO !== undefined &&
-        CINCO instanceof HTMLElement
+        CARTA_CINCO !== null &&
+        CARTA_CINCO !== undefined &&
+        CARTA_CINCO instanceof HTMLElement
       ) {
-        console.log('CINCO');
-        CINCO.classList.add('mostrar_carta');
+        console.log('CARTA_CINCO');
+        CARTA_CINCO.classList.add('mostrar_carta');
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el CINCO');
+        console.error('No se puede mostrar el CARTA_CINCO');
       }
       break;
     case 6:
-      if (SEIS !== null && SEIS !== undefined && SEIS instanceof HTMLElement) {
-        console.log('SEIS');
-        SEIS.classList.add('mostrar_carta');
+      if (
+        CARTA_SEIS !== null &&
+        CARTA_SEIS !== undefined &&
+        CARTA_SEIS instanceof HTMLElement
+      ) {
+        console.log('CARTA_SEIS');
+        CARTA_SEIS.classList.add('mostrar_carta');
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el SEIS');
+        console.error('No se puede mostrar el CARTA_SEIS');
       }
       break;
     case 7:
       if (
-        SIETE !== null &&
-        SIETE !== undefined &&
-        SIETE instanceof HTMLElement
+        CARTA_SIETE !== null &&
+        CARTA_SIETE !== undefined &&
+        CARTA_SIETE instanceof HTMLElement
       ) {
-        console.log('SIETE');
-        SIETE.classList.add('mostrar_carta');
+        console.log('CARTA_SIETE');
+        CARTA_SIETE.classList.add('mostrar_carta');
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el SIETE');
+        console.error('No se puede mostrar el CARTA_SIETE');
       }
       break;
     case 10:
-      if (SOTA !== null && SOTA !== undefined && SOTA instanceof HTMLElement) {
-        console.log('SOTA');
-        SOTA.classList.add('mostrar_carta');
+      if (
+        CARTA_SOTA !== null &&
+        CARTA_SOTA !== undefined &&
+        CARTA_SOTA instanceof HTMLElement
+      ) {
+        console.log('CARTA_SOTA');
+        CARTA_SOTA.classList.add('mostrar_carta');
         valorCartaAleatoria = 0.5;
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el SOTA');
+        console.error('No se puede mostrar el CARTA_SOTA');
       }
       break;
     case 11:
       if (
-        CABALLO !== null &&
-        CABALLO !== undefined &&
-        CABALLO instanceof HTMLElement
+        CARTA_CABALLO !== null &&
+        CARTA_CABALLO !== undefined &&
+        CARTA_CABALLO instanceof HTMLElement
       ) {
-        console.log('CABALLO');
-        CABALLO.classList.add('mostrar_carta');
+        console.log('CARTA_CABALLO');
+        CARTA_CABALLO.classList.add('mostrar_carta');
         valorCartaAleatoria = 0.5;
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el CABALLO');
+        console.error('No se puede mostrar el CARTA_CABALLO');
       }
       break;
     case 12:
-      if (REY !== null && REY !== undefined && REY instanceof HTMLElement) {
-        console.log('REY');
-        REY.classList.add('mostrar_carta');
+      if (
+        CARTA_REY !== null &&
+        CARTA_REY !== undefined &&
+        CARTA_REY instanceof HTMLElement
+      ) {
+        console.log('CARTA_REY');
+        CARTA_REY.classList.add('mostrar_carta');
         valorCartaAleatoria = 0.5;
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
-        console.error('No se puede mostrar el REY');
+        console.error('No se puede mostrar el CARTA_REY');
       }
       break;
 
@@ -190,7 +214,7 @@ const gameOver = () => {
     puntuacion > 7.5
   ) {
     mensaje.textContent = 'GAME OVER';
-    console.error('GAME OVER');
+    reiniciarJuego();
   } else {
     console.log('No es game over');
   }
@@ -207,9 +231,51 @@ const mePlanto = () => {
   ) {
     mensaje.textContent = 'Has sido muy conservador';
   }
+  if (
+    mensaje !== null &&
+    mensaje !== undefined &&
+    mensaje instanceof HTMLHeadingElement &&
+    puntuacion === 5
+  ) {
+    mensaje.textContent = 'Te ha entrado el canguelo eh?';
+  }
+  if (
+    (mensaje !== null &&
+      mensaje !== undefined &&
+      mensaje instanceof HTMLHeadingElement &&
+      puntuacion === 6) ||
+    (mensaje !== null &&
+      mensaje !== undefined &&
+      mensaje instanceof HTMLHeadingElement &&
+      puntuacion === 7)
+  ) {
+    mensaje.textContent = 'Casi casi..';
+  }
+  if (
+    mensaje !== null &&
+    mensaje !== undefined &&
+    mensaje instanceof HTMLHeadingElement &&
+    puntuacion === 7.5
+  ) {
+    mensaje.textContent = '¡ Lo has clavado! ¡Enhorabuena!';
+  }
 };
 
-const handleClick = () => {
+const reiniciarJuego = () => {
+  const btnReloadPage = document.querySelector('.btn_reload');
+  if (
+    btnReloadPage !== null &&
+    btnReloadPage !== undefined &&
+    btnReloadPage instanceof HTMLButtonElement
+  ) {
+    btnReloadPage.style.display = 'block';
+    btnReloadPage.addEventListener('click', () => {
+      window.location.reload();
+    });
+  }
+};
+
+const handlerClick = () => {
   eventos();
 };
 
@@ -220,20 +286,40 @@ const eventos = () => {
     pedirCarta !== null &&
     pedirCarta !== undefined &&
     pedirCarta instanceof HTMLButtonElement
-  )
+  ) {
+    // Fn deshabilitar btn pedirCarta
+    const desactivarBtnPedirCarta = () => {
+      pedirCarta.disabled = true;
+    };
+
     pedirCarta.addEventListener('click', () => {
-      dameCarta();
+      //dameCarta();
       let valorCarta = dameCarta();
       muestraCarta(valorCarta);
       gameOver();
       console.log(valorCarta);
       // Btn plantarse
       const btnPlantarse = document.querySelector('.btn_plantarse');
-      btnPlantarse?.addEventListener('click', mePlanto);
+      if (
+        btnPlantarse != null &&
+        btnPlantarse != undefined &&
+        btnPlantarse instanceof HTMLButtonElement
+      ) {
+        btnPlantarse.addEventListener('click', () => {
+          mePlanto();
+          reiniciarJuego();
+          desactivarBtnPedirCarta();
+        });
+      } else {
+        console.error('No ha podido plantarse');
+      }
     });
+  } else {
+    console.error('No se han podido ejecutar los eventos');
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   muestraPuntuacion();
-  handleClick();
+  handlerClick();
 });
