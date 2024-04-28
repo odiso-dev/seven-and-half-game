@@ -285,7 +285,7 @@ const gameOver = () => {
     mensaje instanceof HTMLHeadingElement &&
     puntuacion > 7.5
   ) {
-    mensaje.textContent = 'GAME OVER';
+    mensaje.textContent = '😵 GAME OVER 😵';
     desactivarBtnPedirCarta();
     reiniciarJuego();
   } else {
