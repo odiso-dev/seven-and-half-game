@@ -73,10 +73,6 @@ const muestraCarta = (valorCartaAleatoria: number): void => {
         console.log(typeof valorCartaAleatoria);
         //console.log('CARTA_AS');
         CARTA_AS.classList.add('mostrar_carta');
-        CARTA_AS.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/1_as-copas.jpg'
-        );
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
       } else {
