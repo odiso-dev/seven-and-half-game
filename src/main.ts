@@ -1,5 +1,21 @@
 import './style.css';
 
+/* type NumeralCarta = {
+  value: number;
+};
+
+// Definición de los valores de las cartas
+const AS: NumeralCarta = { value: 1 };
+const DOS: NumeralCarta = { value: 2 };
+const TRES: NumeralCarta = { value: 3 };
+const CUATRO: NumeralCarta = { value: 4 };
+const CINCO: NumeralCarta = { value: 5 };
+const SEIS: NumeralCarta = { value: 6 };
+const SIETE: NumeralCarta = { value: 7 };
+const SOTA: NumeralCarta = { value: 10 };
+const CABALLO: NumeralCarta = { value: 11 };
+const REY: NumeralCarta = { value: 12 }; */
+
 // Puntuación inicial
 let puntuacion = 0;
 
