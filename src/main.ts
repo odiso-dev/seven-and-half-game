@@ -49,169 +49,125 @@ const muestraCarta = (valorCartaAleatoria: number): void => {
   const SOTA = 10;
   const CABALLO = 11;
   const REY = 12;
-
-  // Div de cada carta
-  const CARTA_AS = document.querySelector('.carta_copas1');
-  const CARTA_DOS = document.querySelector('.carta_copas2');
-  const CARTA_TRES = document.querySelector('.carta_copas3');
-  const CARTA_CUATRO = document.querySelector('.carta_copas4');
-  const CARTA_CINCO = document.querySelector('.carta_copas5');
-  const CARTA_SEIS = document.querySelector('.carta_copas6');
-  const CARTA_SIETE = document.querySelector('.carta_copas7');
-  const CARTA_SOTA = document.querySelector('.carta_copas_sota');
-  const CARTA_CABALLO = document.querySelector('.carta_copas_caballo');
-  const CARTA_REY = document.querySelector('.carta_copas_rey');
-
-  // Mapea el valor de la carta y la muestra
-  switch (valorCartaAleatoria) {
-    case AS:
-      if (
-        CARTA_AS !== null &&
-        CARTA_AS !== undefined &&
-        CARTA_AS instanceof HTMLElement
-      ) {
-        console.log(typeof valorCartaAleatoria);
-        //console.log('CARTA_AS');
-        CARTA_AS.classList.add('mostrar_carta');
+  // Img carta que será visible /
+  const CARTA_UP_IMG = document.querySelector('.carta_levantada>img');
+  console.log(valorCartaAleatoria);
+  if (
+    CARTA_UP_IMG !== null &&
+    CARTA_UP_IMG !== undefined &&
+    CARTA_UP_IMG instanceof HTMLImageElement
+  ) {
+    switch (valorCartaAleatoria) {
+      // AS
+      case AS:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/1_as-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_AS');
-      }
-      break;
-    case DOS:
-      if (
-        CARTA_DOS !== null &&
-        CARTA_DOS !== undefined &&
-        CARTA_DOS instanceof HTMLElement
-      ) {
-        //console.log('CARTA_DOS');
-        CARTA_DOS.classList.add('mostrar_carta');
+        break;
+      // DOS
+      case DOS:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/2_dos-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_DOS');
-      }
-      break;
-    case TRES:
-      if (
-        CARTA_TRES !== null &&
-        CARTA_TRES !== undefined &&
-        CARTA_TRES instanceof HTMLElement
-      ) {
-        //console.log('CARTA_TRES');
-        CARTA_TRES.classList.add('mostrar_carta');
+        break;
+      // TRES
+      case TRES:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/3_tres-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_TRES');
-      }
-      break;
-    case CUATRO:
-      if (
-        CARTA_CUATRO !== null &&
-        CARTA_CUATRO !== undefined &&
-        CARTA_CUATRO instanceof HTMLElement
-      ) {
-        //console.log('CARTA_CUATRO');
-        CARTA_CUATRO.classList.add('mostrar_carta');
+        break;
+      // CUATRO
+      case CUATRO:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/4_cuatro-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_CUATRO');
-      }
-      break;
-    case CINCO:
-      if (
-        CARTA_CINCO !== null &&
-        CARTA_CINCO !== undefined &&
-        CARTA_CINCO instanceof HTMLElement
-      ) {
-        //console.log('CARTA_CINCO');
-        CARTA_CINCO.classList.add('mostrar_carta');
+        break;
+      // CINCO
+      case CINCO:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/5_cinco-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_CINCO');
-      }
-      break;
-    case SEIS:
-      if (
-        CARTA_SEIS !== null &&
-        CARTA_SEIS !== undefined &&
-        CARTA_SEIS instanceof HTMLElement
-      ) {
-        //console.log('CARTA_SEIS');
-        CARTA_SEIS.classList.add('mostrar_carta');
+        break;
+      // SEIS
+      case SEIS:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/6_seis-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_SEIS');
-      }
-      break;
-    case SIETE:
-      if (
-        CARTA_SIETE !== null &&
-        CARTA_SIETE !== undefined &&
-        CARTA_SIETE instanceof HTMLElement
-      ) {
-        //console.log('CARTA_SIETE');
-        CARTA_SIETE.classList.add('mostrar_carta');
+        break;
+      // SIETE
+      case SIETE:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/7_siete-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_SIETE');
-      }
-      break;
-    case SOTA:
-      if (
-        CARTA_SOTA !== null &&
-        CARTA_SOTA !== undefined &&
-        CARTA_SOTA instanceof HTMLElement
-      ) {
-        //console.log('CARTA_SOTA');
-        CARTA_SOTA.classList.add('mostrar_carta');
+        break;
+      // SOTA
+      case SOTA:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/10_sota-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         valorCartaAleatoria = 0.5;
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_SOTA');
-      }
-      break;
-    case CABALLO:
-      if (
-        CARTA_CABALLO !== null &&
-        CARTA_CABALLO !== undefined &&
-        CARTA_CABALLO instanceof HTMLElement
-      ) {
-        //console.log('CARTA_CABALLO');
-        CARTA_CABALLO.classList.add('mostrar_carta');
+        break;
+      // CABALLO
+      case CABALLO:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/11_caballo-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         valorCartaAleatoria = 0.5;
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_CABALLO');
-      }
-      break;
-    case REY:
-      if (
-        CARTA_REY !== null &&
-        CARTA_REY !== undefined &&
-        CARTA_REY instanceof HTMLElement
-      ) {
-        //console.log('CARTA_REY');
-        CARTA_REY.classList.add('mostrar_carta');
+        break;
+      // REY
+      case REY:
+        CARTA_UP_IMG.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/12_rey-copas.jpg'
+        );
+        /* CARTA_UP.classList.add('mostrar_carta'); */
         valorCartaAleatoria = 0.5;
         puntuacion += valorCartaAleatoria;
         return muestraPuntuacion();
-      } else {
-        console.error('No se puede mostrar el CARTA_REY');
-      }
-      break;
+        break;
 
-    default:
-      console.error('No muestra ninguna carta');
-      break;
+      default:
+        console.error('No muestra ninguna carta');
+        break;
+    }
+  } else {
+    console.error('No muestra ninguna carta');
   }
 };
 
@@ -247,7 +203,7 @@ const mePlanto = () => {
         mensaje.textContent = 'Casi casi...😬';
         break;
       case puntuacion === 7.5:
-        mensaje.textContent = '¡ Lo has clavado! ¡Enhorabuena!😉';
+        winGame();
         break;
 
       default:
@@ -290,6 +246,24 @@ const gameOver = () => {
   }
 };
 
+// Gestionar Win game
+const winGame = () => {
+  let mensaje = texto();
+  if (
+    mensaje !== null &&
+    mensaje !== undefined &&
+    mensaje instanceof HTMLHeadingElement &&
+    puntuacion === 7.5
+  ) {
+    mensaje.textContent = '¡ Lo has clavado! ¡Enhorabuena!😉';
+    desactivarBtnPedirCarta();
+    reiniciarJuego();
+    desactivarBtnPlantarse();
+  } else {
+    console.log('No se ha ejecutado winGame');
+  }
+};
+
 // Deshabilitar btn pedirCarta
 const desactivarBtnPedirCarta = () => {
   const pedirCarta = document.querySelector('.pedir_carta');
@@ -322,21 +296,29 @@ const verFuturo = () => {
     btnFuturo.style.display = 'block';
     btnFuturo.addEventListener('click', () => {
       muestraCarta(valorCarta);
+      btnFuturo.disabled = true;
     });
   }
 };
 
 const eventos = () => {
+  // Boton carta visible
+  const CARTA_UP = document.querySelector('.carta_levantada');
   // Boton pedir carta
   const pedirCarta = document.querySelector('.pedir_carta');
   if (
     pedirCarta !== null &&
     pedirCarta !== undefined &&
-    pedirCarta instanceof HTMLButtonElement
+    pedirCarta instanceof HTMLButtonElement &&
+    CARTA_UP !== null &&
+    CARTA_UP !== undefined &&
+    CARTA_UP instanceof HTMLElement
   ) {
     pedirCarta.addEventListener('click', () => {
+      CARTA_UP.classList.add('mostrar_carta');
       let valorCarta = dameCarta();
       muestraCarta(valorCarta);
+      winGame();
       gameOver();
       //console.log(valorCarta);
     });
