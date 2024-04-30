@@ -284,6 +284,7 @@ const gameOver = () => {
     mensaje.textContent = '😵 GAME OVER 😵';
     desactivarBtnPedirCarta();
     reiniciarJuego();
+    desactivarBtnPlantarse();
   } else {
     //console.log('No es game over');
   }
