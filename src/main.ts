@@ -51,7 +51,6 @@ const muestraCarta = (valorCartaAleatoria: number): void => {
   const REY = 12;
   // Img carta que será visible /
   const CARTA_UP_IMG = document.querySelector('.carta_levantada>img');
-  console.log(valorCartaAleatoria);
   if (
     CARTA_UP_IMG !== null &&
     CARTA_UP_IMG !== undefined &&
@@ -189,17 +188,15 @@ const mePlanto = () => {
     en cada 'case', pero si le pasamos un booleano si. He visto este truco
     por ahí y he tenido que utilizarlo O_o */
 
+    // Modificado según el ejercicio para abarcar todas las puntuaciones
     switch (true) {
       case puntuacion <= 4:
         mensaje.textContent = 'Has sido muy conservador 😱';
         break;
-      case puntuacion === 5:
+      case puntuacion > 4 && puntuacion < 6:
         mensaje.textContent = 'Te ha entrado el canguelo eh?😵';
         break;
-      case puntuacion === 6:
-        mensaje.textContent = 'Casi casi...😬';
-        break;
-      case puntuacion === 7:
+      case puntuacion >= 6 || puntuacion < 7.5:
         mensaje.textContent = 'Casi casi...😬';
         break;
       case puntuacion === 7.5:
@@ -260,7 +257,7 @@ const winGame = () => {
     reiniciarJuego();
     desactivarBtnPlantarse();
   } else {
-    console.log('No se ha ejecutado winGame');
+    console.error('No se ha ejecutado winGame');
   }
 };
 
@@ -296,8 +293,36 @@ const verFuturo = () => {
     btnFuturo.style.display = 'block';
     btnFuturo.addEventListener('click', () => {
       muestraCarta(valorCarta);
+      animacionPuntuacionCarta(valorCarta);
       btnFuturo.disabled = true;
     });
+  }
+};
+
+// Animación mostrar puntuación de la carta
+const animacionPuntuacionCarta = (valorCarta: number): void => {
+  const elPuntuacionCarta = document.querySelector('.show_score');
+  if (
+    elPuntuacionCarta !== null &&
+    elPuntuacionCarta !== undefined &&
+    elPuntuacionCarta instanceof HTMLSpanElement
+  ) {
+    elPuntuacionCarta.textContent = `+${valorCarta.toString()}`;
+    elPuntuacionCarta.classList.add('show_score_animation');
+    elPuntuacionCarta.animate(
+      [
+        //from
+        { opacity: '0' },
+        { opacity: '1' },
+        { zIndex: '1' },
+        { transform: 'translate(-2vw, -6vh)' },
+      ],
+      {
+        // opciones de sincronización
+        duration: 1000,
+        easing: 'ease-in',
+      }
+    );
   }
 };
 
@@ -318,6 +343,7 @@ const eventos = () => {
       CARTA_UP.classList.add('mostrar_carta');
       let valorCarta = dameCarta();
       muestraCarta(valorCarta);
+      animacionPuntuacionCarta(valorCarta);
       winGame();
       gameOver();
       //console.log(valorCarta);

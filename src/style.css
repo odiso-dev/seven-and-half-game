@@ -149,3 +149,20 @@ section {
 .btn_futuro {
   display: none;
 }
+.show_score_animation {
+  position: absolute;
+  font-size: 2rem;
+  color: #f78001;
+  font-weight: bold;
+  /* animation: showScore 1s ease-in-out; */
+}
+/* @keyframes showScore {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-2vw, -6vh);
+    z-index: 1;
+  }
+} */
