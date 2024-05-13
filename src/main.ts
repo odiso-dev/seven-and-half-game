@@ -16,39 +16,89 @@ const SOTA: NumeralCarta = { value: 10 };
 const CABALLO: NumeralCarta = { value: 11 };
 const REY: NumeralCarta = { value: 12 }; */
 
+// Variables con valor de cada carta
+enum TipoCarta {
+  AS = 1,
+  DOS = 2,
+  TRES = 3,
+  CUATRO = 4,
+  CINCO = 5,
+  SEIS = 6,
+  SIETE = 7,
+  SOTA = 8,
+  CABALLO = 9,
+  REY = 10,
+}
+
 // Puntuación inicial
 let puntuacion = 0;
 
-const muestraPuntuacion = () => {
-  let mostrarPuntuacion = document.querySelector('.mostrar_puntuacion');
-  mostrarPuntuacion !== null &&
-  mostrarPuntuacion !== undefined &&
-  mostrarPuntuacion instanceof HTMLHeadingElement
-    ? (mostrarPuntuacion.textContent = puntuacion.toString())
-    : console.error('No se puede mostrar la puntuación');
+// Genera nº aleatorio del 1 al 10
+const crearNumAleatorio = () => {
+  const numero = Math.ceil(Math.random() * 10);
+  return numero;
 };
 
-// Genera valor de carta aleatoria
-const dameCarta = () => {
-  let cartaAleatoria = Math.ceil(Math.random() * 10);
-  cartaAleatoria > 7
-    ? (cartaAleatoria += 2)
-    : console.log('CartaAleatoria no es >7');
-  return cartaAleatoria;
+// Calcula valor carta que se mostrará en como puntuación
+// Parametro es numAleatorio = crearNumAleatorio()
+const calculaValorCarta = (numAleatorio: number) => {
+  if (numAleatorio <= 7) {
+    return numAleatorio;
+  } else {
+    return 0.5;
+  }
 };
-// Pasamos como parametro el valor que devuelve dameCarta()
-const muestraCarta = (valorCartaAleatoria: number): void => {
-  // Valor cartas
-  const AS = 1;
-  const DOS = 2;
-  const TRES = 3;
-  const CUATRO = 4;
-  const CINCO = 5;
-  const SEIS = 6;
-  const SIETE = 7;
-  const SOTA = 10;
-  const CABALLO = 11;
-  const REY = 12;
+
+// Calcula nº de la carta
+// Parametro  numAleatorio = crearNumAleatorio()
+const calculaNumCarta = (numAleatorio: number) => {
+  if (numAleatorio <= 7) {
+    return numAleatorio;
+  } else {
+    return (numAleatorio += 2);
+  }
+};
+
+// Muestra carta con url
+const urlCarta = (numCarta: number) => {
+  switch (numCarta) {
+    case TipoCarta.AS:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/1_as-copas.jpg';
+      break;
+    case TipoCarta.DOS:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/2_dos-copas.jpg';
+      break;
+    case TipoCarta.TRES:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/3_tres-copas.jpg';
+      break;
+    case TipoCarta.CUATRO:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/4_cuatro-copas.jpg';
+      break;
+    case TipoCarta.CINCO:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/5_cinco-copas.jpg';
+      break;
+    case TipoCarta.SEIS:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/6_seis-copas.jpg';
+      break;
+    case TipoCarta.SIETE:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/7_siete-copas.jpg';
+      break;
+    case TipoCarta.SOTA:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/10_sota-copas.jpg';
+      break;
+    case TipoCarta.CABALLO:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/11_caballo-copas.jpg';
+      break;
+    case TipoCarta.REY:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/12_rey-copas.jpg';
+      break;
+    default:
+      return 'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg';
+      break;
+  }
+};
+const mostrarCarta = (numAleatorio: number) => {
+  const url = urlCarta(numAleatorio);
   // Img carta que será visible /
   const CARTA_UP_IMG = document.querySelector('.carta_levantada>img');
   if (
@@ -56,120 +106,110 @@ const muestraCarta = (valorCartaAleatoria: number): void => {
     CARTA_UP_IMG !== undefined &&
     CARTA_UP_IMG instanceof HTMLImageElement
   ) {
-    switch (valorCartaAleatoria) {
-      // AS
-      case AS:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/1_as-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // DOS
-      case DOS:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/2_dos-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // TRES
-      case TRES:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/3_tres-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // CUATRO
-      case CUATRO:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/4_cuatro-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // CINCO
-      case CINCO:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/5_cinco-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // SEIS
-      case SEIS:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/6_seis-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // SIETE
-      case SIETE:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/7_siete-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // SOTA
-      case SOTA:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/10_sota-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        valorCartaAleatoria = 0.5;
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // CABALLO
-      case CABALLO:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/11_caballo-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        valorCartaAleatoria = 0.5;
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-      // REY
-      case REY:
-        CARTA_UP_IMG.setAttribute(
-          'src',
-          'https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/12_rey-copas.jpg'
-        );
-        /* CARTA_UP.classList.add('mostrar_carta'); */
-        valorCartaAleatoria = 0.5;
-        puntuacion += valorCartaAleatoria;
-        return muestraPuntuacion();
-        break;
-
-      default:
-        console.error('No muestra ninguna carta');
-        break;
-    }
+    CARTA_UP_IMG.setAttribute('src', url);
+  }
+};
+const muestraPuntuacion = (valorCarta: number) => {
+  let mostrarPuntuacion = document.querySelector('.mostrar_puntuacion');
+  if (
+    mostrarPuntuacion !== null &&
+    mostrarPuntuacion !== undefined &&
+    mostrarPuntuacion instanceof HTMLHeadingElement
+  ) {
+    puntuacion += valorCarta;
+    mostrarPuntuacion.textContent = puntuacion.toString();
   } else {
-    console.error('No muestra ninguna carta');
+    console.error('No se puede mostrar la puntuación');
+  }
+};
+// Mensajes en función de la puntuacion
+type Estado = 'CONSERVADOR' | 'CAGADO' | 'CASI' | 'WIN' | 'GAMEOVER' | 'NULO';
+
+// Comprobar nº para mostrar texto
+const comprobarNumero = (puntuacion: number): Estado => {
+  switch (true) {
+    case puntuacion <= 4:
+      return 'CONSERVADOR';
+      break;
+    case puntuacion > 4 && puntuacion < 6:
+      return 'CAGADO';
+      break;
+    case puntuacion >= 6 && puntuacion < 7.5:
+      return 'CASI';
+      break;
+    case puntuacion === 7.5:
+      return 'WIN';
+      break;
+    case puntuacion > 7.5:
+      return 'GAMEOVER';
+      break;
+    default:
+      return 'NULO';
+      break;
   }
 };
 
+// Mostramos mensaje en funcion de comprobarNumero
+const mostrarMensajes = (estado: string) => {
+  let mensaje = texto();
+  if (
+    mensaje !== null &&
+    mensaje !== undefined &&
+    mensaje instanceof HTMLHeadingElement
+  ) {
+    switch (estado) {
+      case 'CONSERVADOR':
+        mensaje.textContent = 'Has sido muy conservador 😱';
+        break;
+      case 'CAGADO':
+        mensaje.textContent = 'Te ha entrado el canguelo eh?😵';
+        break;
+      case 'CASI':
+        mensaje.textContent = 'Casi casi...😬';
+        break;
+      case 'WIN':
+        mensaje.textContent = '¡ Lo has clavado! ¡Enhorabuena!😉';
+        break;
+      case 'GAMEOVER':
+        mensaje.textContent = '😵 GAME OVER 😵';
+        break;
+      default:
+        console.error('No se ha ejecutado el switch en mostrarMensajes');
+        break;
+    }
+  } else {
+  }
+};
+// Comprobar juego
+const comprobarJuego = (estado: Estado) => {
+  switch (estado) {
+    case 'WIN':
+      winGame();
+      mostrarMensajes(estado);
+      break;
+    case 'GAMEOVER':
+      gameOver();
+      mostrarMensajes(estado);
+      break;
+    default:
+      break;
+  }
+};
+// Gestionar game over
+const gameOver = () => {
+  desactivarBtnPedirCarta();
+  reiniciarJuego();
+  desactivarBtnPlantarse();
+};
+
+// Gestionar Win game
+const winGame = () => {
+  desactivarBtnPedirCarta();
+  reiniciarJuego();
+  desactivarBtnPlantarse();
+};
+
+/* ********************************************************************* */
 // Mostrar mensajes en función de la puntuación
 const texto = () => {
   let texto = document.querySelector('.texto_avisos');
@@ -178,36 +218,12 @@ const texto = () => {
 
 // Gestionar me planto
 const mePlanto = () => {
-  let mensaje = texto();
-  if (
-    mensaje !== null &&
-    mensaje !== undefined &&
-    mensaje instanceof HTMLHeadingElement
-  ) {
-    /* Pasando al switch la variable 'puntuacion' no permite evaluar condicion
-    en cada 'case', pero si le pasamos un booleano si. He visto este truco
-    por ahí y he tenido que utilizarlo O_o */
-
-    // Modificado según el ejercicio para abarcar todas las puntuaciones
-    switch (true) {
-      case puntuacion <= 4:
-        mensaje.textContent = 'Has sido muy conservador 😱';
-        break;
-      case puntuacion > 4 && puntuacion < 6:
-        mensaje.textContent = 'Te ha entrado el canguelo eh?😵';
-        break;
-      case puntuacion >= 6 || puntuacion < 7.5:
-        mensaje.textContent = 'Casi casi...😬';
-        break;
-      case puntuacion === 7.5:
-        winGame();
-        break;
-
-      default:
-        console.error('No se ha ejecutado el switch en mePlanto');
-        break;
-    }
-  }
+  const estado: Estado = comprobarNumero(puntuacion);
+  mostrarMensajes(estado);
+  desactivarBtnPlantarse();
+  reiniciarJuego();
+  desactivarBtnPedirCarta();
+  verSiguienteCarta();
 };
 
 // Reiniciar juego
@@ -222,42 +238,6 @@ const reiniciarJuego = () => {
     btnReloadPage.addEventListener('click', () => {
       window.location.reload();
     });
-  }
-};
-
-// Gestionar Game Over
-const gameOver = () => {
-  let mensaje = texto();
-  if (
-    mensaje !== null &&
-    mensaje !== undefined &&
-    mensaje instanceof HTMLHeadingElement &&
-    puntuacion > 7.5
-  ) {
-    mensaje.textContent = '😵 GAME OVER 😵';
-    desactivarBtnPedirCarta();
-    reiniciarJuego();
-    desactivarBtnPlantarse();
-  } else {
-    //console.log('No es game over');
-  }
-};
-
-// Gestionar Win game
-const winGame = () => {
-  let mensaje = texto();
-  if (
-    mensaje !== null &&
-    mensaje !== undefined &&
-    mensaje instanceof HTMLHeadingElement &&
-    puntuacion === 7.5
-  ) {
-    mensaje.textContent = '¡ Lo has clavado! ¡Enhorabuena!😉';
-    desactivarBtnPedirCarta();
-    reiniciarJuego();
-    desactivarBtnPlantarse();
-  } else {
-    console.error('No se ha ejecutado winGame');
   }
 };
 
@@ -280,11 +260,21 @@ const desactivarBtnPlantarse = () => {
     ? (btnPlantarse.disabled = true)
     : console.log('No se puede desactivar desactivarBtnPlantarse ');
 };
+// Habilitar btn mePlanto
+const activarBtnPlantarse = () => {
+  const btnPlantarse = document.querySelector('.btn_plantarse');
+  btnPlantarse !== null &&
+  btnPlantarse !== undefined &&
+  btnPlantarse instanceof HTMLButtonElement
+    ? (btnPlantarse.disabled = false)
+    : console.log('No se puede desactivar desactivarBtnPlantarse ');
+};
 
 // Ver las siguientes cartas después de plantarse
-const verFuturo = () => {
+const verSiguienteCarta = () => {
   const btnFuturo = document.querySelector('.btn_futuro');
-  let valorCarta = dameCarta();
+  const numAleatorio = crearNumAleatorio();
+  const numAleatorioValor = calculaValorCarta(numAleatorio);
   if (
     btnFuturo !== null &&
     btnFuturo !== undefined &&
@@ -292,22 +282,36 @@ const verFuturo = () => {
   ) {
     btnFuturo.style.display = 'block';
     btnFuturo.addEventListener('click', () => {
-      muestraCarta(valorCarta);
-      animacionPuntuacionCarta(valorCarta);
+      mostrarCarta(numAleatorioValor);
+      mostrarCarta(numAleatorio);
+      animacionPuntuacionCarta(numAleatorioValor);
       btnFuturo.disabled = true;
     });
   }
 };
+const gestorClickPedirCarta = () => {
+  const numAleatorio = crearNumAleatorio();
+  const numAleatorioValor = calculaValorCarta(numAleatorio);
+  calculaValorCarta(numAleatorio);
+  calculaNumCarta(numAleatorio);
+  urlCarta(numAleatorio);
+  mostrarCarta(numAleatorio);
+  animacionPuntuacionCarta(numAleatorioValor);
+  muestraPuntuacion(numAleatorioValor);
+  const estado = comprobarNumero(puntuacion);
+  comprobarJuego(estado);
+  activarBtnPlantarse();
+};
 
 // Animación mostrar puntuación de la carta
-const animacionPuntuacionCarta = (valorCarta: number): void => {
+const animacionPuntuacionCarta = (numAleatorio: number): void => {
   const elPuntuacionCarta = document.querySelector('.show_score');
   if (
     elPuntuacionCarta !== null &&
     elPuntuacionCarta !== undefined &&
     elPuntuacionCarta instanceof HTMLSpanElement
   ) {
-    elPuntuacionCarta.textContent = `+${valorCarta.toString()}`;
+    elPuntuacionCarta.textContent = `+${numAleatorio.toString()}`;
     elPuntuacionCarta.classList.add('show_score_animation');
     elPuntuacionCarta.animate(
       [
@@ -340,13 +344,8 @@ const eventos = () => {
     CARTA_UP instanceof HTMLElement
   ) {
     pedirCarta.addEventListener('click', () => {
+      gestorClickPedirCarta();
       CARTA_UP.classList.add('mostrar_carta');
-      let valorCarta = dameCarta();
-      muestraCarta(valorCarta);
-      animacionPuntuacionCarta(valorCarta);
-      winGame();
-      gameOver();
-      //console.log(valorCarta);
     });
   } else {
     console.error('No se ha ejecutado el evento pedirCarta');
@@ -361,10 +360,6 @@ const eventos = () => {
   ) {
     btnPlantarse.addEventListener('click', () => {
       mePlanto();
-      desactivarBtnPlantarse();
-      reiniciarJuego();
-      desactivarBtnPedirCarta();
-      verFuturo();
     });
   } else {
     console.error('No ha podido plantarse');
@@ -372,6 +367,6 @@ const eventos = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  muestraPuntuacion();
+  muestraPuntuacion(0);
   eventos();
 });
