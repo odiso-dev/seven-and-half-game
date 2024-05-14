@@ -273,15 +273,15 @@ const reiniciarJuego = () => {
 };
 
 // Dejar fijar la puntuacion de la siguiente carta una vez te has plantado
-const puntuacionSiguienteCarta = (numAleatorio: number): void => {
+const puntuacionSiguienteCarta = (numAleatorioValor: number): void => {
   const valorSiguienteCarta = document.querySelector('.puntuacion_futuro');
-  const total = puntuacion + numAleatorio;
+  const total = puntuacion + numAleatorioValor;
   if (
     valorSiguienteCarta !== null &&
     valorSiguienteCarta !== undefined &&
     valorSiguienteCarta instanceof HTMLHeadingElement
   ) {
-    valorSiguienteCarta.textContent = `+${total.toString()}`;
+    valorSiguienteCarta.textContent = total.toString();
   }
 };
 
@@ -297,11 +297,10 @@ const verSiguienteCarta = () => {
   ) {
     btnFuturo.style.display = 'block';
     btnFuturo.addEventListener('click', () => {
-      mostrarCarta(numAleatorioValor);
       mostrarCarta(numAleatorio);
       animacionPuntuacionCarta(numAleatorioValor);
       btnFuturo.disabled = true;
-      puntuacionSiguienteCarta(numAleatorio);
+      puntuacionSiguienteCarta(numAleatorioValor);
     });
   }
 };
